@@ -1,0 +1,33 @@
+<div class="container">
+    <h1 class="display-4 text-center">Mua Hàng Online</h1>
+    <div class="sortProduct">
+        <p class="lead">Hiển thị </p>
+        <select (change)="setTypeSort($event)" class="bg-dark text-white">
+            <optgroup label="Hiển thị theo thứ tự">
+                <option>Từ A-Z</option>
+                <option>Từ Z-A</option>
+            </optgroup>
+            <optgroup label="Hiển thị theo hãng">
+                <option>Iphone</option>
+                <option>Samsung</option>
+                <option>Oppo</option>
+            </optgroup>
+        </select>
+    </div>
+
+    <app-list-product (productEmitter)="setListProdCart($event)" [listProduct]="listProductSend"></app-list-product>
+    <div class="row">
+        <div class="col-12 mt-5">
+            <span class="bg-warning text-white px-3 py-2">Thêm Hàng Thành Công</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 mt-5">
+            <h1 class="display-4">Giỏ Hàng</h1>
+        </div>
+        <div class="col-12">
+            <!-- //giỏ hàng -->
+            <app-cart [listProdCart]="listProdCart"></app-cart>
+        </div>
+    </div>
+</div>

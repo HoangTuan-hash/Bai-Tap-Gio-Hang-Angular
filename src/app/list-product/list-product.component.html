@@ -1,0 +1,7 @@
+<div class="row mt-4">
+    <div class="col-4" *ngFor="let item of listProduct">
+        <!-- sản phẩm -->
+        <app-product-item (productEmitted)=" sendProduct($event)" [product]="item"></app-product-item>
+    </div>
+
+</div>

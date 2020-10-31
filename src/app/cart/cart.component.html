@@ -1,0 +1,40 @@
+<table class="table text-center">
+    <thead>
+        <tr>
+            <th>Hình Ảnh</th>
+            <th>Sản Phẩm</th>
+            <th>Giá</th>
+            <th>Số Lượng</th>
+            <th>Tổng Cộng</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let prodCart of listProdCartRender">
+            <td><img style="width:100px;" [src]="prodCart?.image" /></td>
+            <td style="font-size:25px;">{{prodCart?.name}}</td>
+            <td>{{prodCart.price}}</td>
+            <td>
+
+                <div class="btn-group">
+                    <button class="btn btn-info border-right" (click)="changeQuantily(prodCart,false)">-</button>
+                    <p class="text-danger my-auto mx-2">{{prodCart?.quantity}}</p>
+
+                    <button class="btn btn-info border-left" (click)="changeQuantily(prodCart,true)">+</button>
+                </div>
+            </td>
+            <td>{{prodCart.tongTien}}</td>
+            <td>
+                <button class="btn btn-danger" (click)="deleteProdCart(prodCart.id)">x</button>
+            </td>
+        </tr>
+        <tr>
+
+            <td colspan="4" style="font-size:30px" class="font-weight-bold">Tổng Tiền</td>
+            <td style="font-size:30px" class="font-weight-bold">{{totalMoney}}</td>
+            <td>
+                <button style="font-size:30px" class="btn btn-info" (click)="payCart()">Thanh Toán</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
